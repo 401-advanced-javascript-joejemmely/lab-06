@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [submission PR](http://xyz.com)
+- [submission PR](https://github.com/401-advanced-javascript-joejemmely/lab-06/pull/1)
 - [travis](https://travis-ci.com/401-advanced-javascript-joejemmely/lab-06)
 - [front-end](https://p6i2h.codesandbox.io/)
 
