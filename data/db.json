@@ -1,0 +1,25 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "bike",
+      "displayName": "bike",
+      "description": "Two wheels"
+    },
+    {
+      "name": "ski",
+      "displayName": "ski",
+      "description": "for the snow",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": "bike",
+      "name": "fixie",
+      "displayName": "Fixie",
+      "description": "Very hipster"
+    }
+  ]
+}

@@ -7,12 +7,23 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080/"
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "categories",
+      "description": "Everything about the categories"
+    },
+    {
+      "name": "products",
+      "description": "Everything about the products"
     }
   ],
   "paths": {
     "/categories": {
       "get": {
+        "tags": ["categories"],
         "description": "Get all categories",
         "responses": {
           "200": {
@@ -20,7 +31,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/getAll"
+                  "$ref": "#/components/schemas/categories"
                 }
               }
             }
@@ -28,25 +39,180 @@
         }
       },
       "post": {
+        "tags": ["categories"],
+        "description": "Add a new category",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/categories"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/categories"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/categories/{id}": {
-      "get": {
-      },
       "put": {
+        "tags": ["categories"],
+        "description": "Add a new category",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "$ref": "#/components/schemas/categories"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned a list of categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/categories"
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
+        "tags": ["categories"],
+        "description": "Delete a category",
+        "responses": {
+          "200": {
+            "description": "Returned a list of categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/categories"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": ["products"],
+        "description": "Get all products",
+        "responses": {
+          "200": {
+            "description": "Returned a list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/products"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["products"],
+        "description": "Add a new category",
+        "responses": {
+          "200": {
+            "description": "Returned a list of categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/products"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "put": {
+        "tags": ["products"],
+        "description": "Add a product",
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["products"],
+        "description": "Delete a product",
+        "responses": {
+          "200": {
+            "description": "Returned a list of products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/products"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "components": {
     "schemas": {
-      "getAll": {
+      "categories": {
         "type": "object",
-        "example": [
-          "{}",
-          "{}"
-        ]
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "products": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
       }
     }
   }
